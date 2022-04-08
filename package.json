@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://MartinLingeri.github.io/Portfolio",
   "dependencies": {
     "@chakra-ui/react": "^1.8.7",
     "@emailjs/browser": "^3.5.0",
@@ -13,6 +14,7 @@
     "axios": "^0.26.1",
     "focus-visible": "^5.2.0",
     "framer-motion": "^4.1.17",
+    "gh-pages": "^3.2.3",
     "papaparse": "^5.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,6 +26,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
