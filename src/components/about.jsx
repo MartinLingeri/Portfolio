@@ -36,6 +36,7 @@ export default function About() {
                 borderRadius="md"
                 boxSize="200px"
                 boxShadow="0 2px 10px 2px #E53E3E"
+                objectFit="cover"
                 src={Yo}
                 alt="Martin Lingeri"
               ></Image>
