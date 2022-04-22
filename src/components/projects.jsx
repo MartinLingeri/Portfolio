@@ -3,11 +3,11 @@ import {
   Center,
   Heading,
   Divider,
-  Wrap,
-  WrapItem,
   Stack,
-  LinkBox,
-  LinkOverlay,
+  Grid,
+  GridItem,
+  Box,
+  Link,
   Text,
 } from '@chakra-ui/react';
 import { backgroundAnimation } from './backgroundAnimation';
@@ -63,13 +63,20 @@ export default function Projects() {
       <Stack marginBlock={16} spacing={8}>
         <Heading>Projects</Heading>
         <Divider borderColor="gray.50" />
-        <Wrap justify="center" spacing={4} maxW="90vw">
+        <Grid
+            gridGap={4}
+            templateColumns={{
+              base: '1fr',
+              lg: 'repeat(2, 1fr)',
+              xl: 'repeat(3, 1fr)',
+            }}
+          >
           {projects.map((project, index) => (
-            <WrapItem key={index}>
-              <LinkBox
-                as="article"
+            <GridItem key={index}>
+              <Stack
+                as={Link}
+                h="100%"
                 w={{ base: 'xs', lg: 'sm' }}
-                minH="8rem"
                 p="5"
                 borderWidth="1px"
                 rounded="md"
@@ -79,15 +86,14 @@ export default function Projects() {
                     Math.floor(Math.random() * linkBoxColors.length)
                   ]
                 }
+                href={`${project.link}`} isExternal
               >
-                <LinkOverlay href={`${project.link}`} isExternal>
-                  <Heading>{project.nombre}</Heading>
-                  <Text>{project.descripcion}</Text>
-                </LinkOverlay>
-              </LinkBox>
-            </WrapItem>
+                <Heading>{project.nombre}</Heading>
+                <Text>{project.descripcion}</Text>
+              </Stack>
+            </GridItem>
           ))}
-        </Wrap>
+        </Grid>
       </Stack>
     </Center>
   );
